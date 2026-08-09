@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pacote de Beleza Feminina | E-books e Guias Digitais</title>
+<meta name="description" content="O maior pacote digital de beleza feminina: e-books e guias de skincare, cabelo, maquiagem e autocuidado. Acesso imediato.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#FFFFFF;
+    --black:#111111;
+    --blue:#2563EB;
+    --blue-dark:#1D4ED8;
+    --blue-light:#EFF4FF;
+    --gray-light:#F5F5F5;
+    --gray-dark:#555555;
+    --amber:#F59E0B;
+    --amber-dark:#D97706;
+    --radius-lg:24px;
+    --radius-md:16px;
+    --radius-sm:10px;
+    --shadow-soft:0 10px 30px rgba(17,17,17,0.06);
+    --max-width:1160px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Poppins',sans-serif;
+    color:var(--black);
+    background:var(--white);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block;}
+  a{text-decoration:none;color:inherit;}
+  .container{max-width:var(--max-width);margin:0 auto;padding:0 24px;}
+  section{padding:90px 0;}
+  h1,h2,h3{font-weight:800;letter-spacing:-0.02em;}
+
+  .section-title{
+    font-size:clamp(26px,3.6vw,36px);
+    text-align:center;
+    margin-bottom:14px;
+  }
+  .section-subtitle{
+    text-align:center;
+    color:var(--gray-dark);
+    font-size:16px;
+    max-width:560px;
+    margin:0 auto 48px;
+  }
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    position:relative;
+    display:inline-flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:2px;
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:18px;
+    padding:20px 36px;
+    border-radius:14px;
+    border:none;
+    cursor:pointer;
+    overflow:hidden;
+    transition:transform .25s ease, box-shadow .25s ease;
+    width:100%;
+    max-width:440px;
+  }
+  .btn small{ font-weight:500; font-size:12.5px; opacity:0.9; letter-spacing:0.02em; }
+  .btn-primary{
+    background:linear-gradient(135deg, #16A34A, #15803D);
+    color:var(--white);
+    box-shadow:0 12px 28px rgba(22,163,74,0.35);
+    animation:btnPulse 1.6s ease-in-out infinite;
+  }
+  .btn-primary:hover{ animation-play-state:paused; transform:translateY(-3px) scale(1.04); box-shadow:0 18px 36px rgba(22,163,74,0.5); }
+  .btn-primary::after{
+    content:'';
+    position:absolute; top:0; left:-75%; width:50%; height:100%;
+    background:linear-gradient(120deg, transparent, rgba(255,255,255,0.45), transparent);
+    transform:skewX(-20deg);
+    transition:left .6s ease;
+  }
+  .btn-primary:hover::after{ left:130%; }
+
+  @keyframes btnPulse{
+    0%,100%{ transform:scale(1); box-shadow:0 12px 28px rgba(22,163,74,0.35); }
+    50%{ transform:scale(1.05); box-shadow:0 18px 40px rgba(22,163,74,0.55); }
+  }
+
+  /* ---------- Urgency bar ---------- */
+  .urgency-bar{
+    background:var(--amber);
+    color:var(--white);
+    text-align:center;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:0.03em;
+    padding:12px 16px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{ padding:56px 0 60px; text-align:center; }
+
+  .hero-title{
+    font-size:clamp(28px,4.2vw,44px);
+    line-height:1.18;
+    max-width:820px;
+    margin:0 auto 40px;
+  }
+  .hero-title .accent{ color:#DC2626; }
+
+  .hero-mockup{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:26px;
+  }
+
+  .hero-mockup-img{
+    width:100%;
+    max-width:680px;
+    height:auto;
+    filter:drop-shadow(0 28px 46px rgba(17,17,17,0.18));
+  }
+
+  .video-placeholder{
+    aspect-ratio:16/9;
+    border-radius:var(--radius-lg);
+    background:linear-gradient(160deg,#1E293B 0%, #0F172A 100%);
+    box-shadow:0 28px 50px rgba(15,23,42,0.28);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    color:rgba(255,255,255,0.55);
+    text-align:center;
+  }
+  .video-play-btn{
+    width:64px; height:64px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.12);
+    border:2px solid rgba(255,255,255,0.35);
+    color:var(--white);
+    display:flex; align-items:center; justify-content:center;
+    font-size:20px;
+    padding-left:4px;
+  }
+  .video-placeholder p{ font-size:13px; font-weight:600; }
+
+  .hero-subtitle{
+    color:var(--gray-dark);
+    font-size:17px;
+    max-width:520px;
+    margin:0 auto 28px;
+  }
+
+  .hero-secure{
+    margin-top:16px;
+    font-size:13px;
+    color:var(--gray-dark);
+    font-weight:500;
+  }
+
+  .cta-wrap{ display:flex; justify-content:center; }
+
+  /* ---------- What you get ---------- */
+  .grid-cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+  }
+
+  .item-card{
+    background:var(--white);
+    border:2px solid #FCA5A5;
+    border-radius:var(--radius-md);
+    padding:30px 24px;
+    text-align:center;
+    transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  }
+  .item-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-soft); border-color:#F59E0B; }
+  .item-icon{
+    width:52px; height:52px; margin:0 auto 16px;
+    border-radius:14px;
+    background:#FEE2E2;
+    display:flex; align-items:center; justify-content:center;
+    font-size:24px;
+    transition:background .3s ease;
+  }
+  .item-card:hover .item-icon{ background:#FEF3C7; }
+  .item-card h3{ font-size:16px; margin-bottom:8px; }
+  .item-card p{ font-size:13.5px; color:var(--gray-dark); }
+
+  /* ---------- Photo panel ---------- */
+  .photo-panel{
+    max-width:var(--max-width);
+    margin:0 auto;
+    padding:0 24px;
+  }
+  .photo-card{
+    width:100%;
+    border-radius:var(--radius-lg);
+    aspect-ratio:16/7;
+    object-fit:cover;
+    display:block;
+    box-shadow:var(--shadow-soft);
+  }
+
+  /* ---------- Why choose ---------- */
+  .why{ background:var(--white); }
+  .benefits-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+    max-width:820px;
+    margin:0 auto;
+  }
+  .benefit-card{ text-align:center; padding:20px; }
+  .benefit-icon{
+    width:56px; height:56px; margin:0 auto 16px;
+    border-radius:50%;
+    background:var(--gray-light);
+    color:var(--blue);
+    display:flex; align-items:center; justify-content:center;
+    font-size:24px;
+  }
+  .benefit-card h3{ font-size:16px; margin-bottom:8px; }
+  .benefit-card p{ font-size:14px; color:var(--gray-dark); }
+
+  /* ---------- Bonus ---------- */
+  .bonus-section{ background:var(--gray-light); }
+  .bonus-pill{
+    display:block;
+    width:fit-content;
+    margin:0 auto 18px;
+    background:var(--white);
+    color:#16A34A;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding:8px 18px;
+    border-radius:999px;
+  }
+  .bonus-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+  }
+  .bonus-grid-3{ grid-template-columns:repeat(3,1fr); }
+  .bonus-card{
+    background:var(--white);
+    border-radius:var(--radius-md);
+    padding:16px 16px 22px;
+    box-shadow:var(--shadow-soft);
+    transition:transform .3s ease;
+    text-align:center;
+  }
+  .bonus-card:hover{ transform:translateY(-6px); }
+  .bonus-img{
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    border-radius:var(--radius-sm);
+    margin-bottom:16px;
+  }
+  .bonus-price-old{ font-size:12px; color:#DC2626; text-decoration:line-through; display:block; }
+  .bonus-price-new{ font-size:15px; font-weight:800; color:#DC2626; }
+
+  /* ---------- Offer ---------- */
+  .offer-wrapper{ max-width:820px; margin:0 auto; padding:0 24px; }
+  .offer-card{
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+    box-shadow:0 20px 50px rgba(17,17,17,0.1);
+  }
+  .offer-head{
+    background:linear-gradient(120deg, #DC2626, #B91C1C);
+    color:var(--white);
+    text-align:center;
+    padding:28px 24px;
+  }
+  .offer-head h2{ font-size:22px; margin-bottom:6px; }
+  .offer-head p{ font-size:13px; opacity:0.85; }
+  .offer-body{
+    background:var(--white);
+    padding:36px 32px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:32px;
+  }
+  .offer-list{ list-style:none; }
+  .offer-list li{
+    display:flex; align-items:flex-start; gap:10px;
+    font-size:14.5px; font-weight:600;
+    margin-bottom:14px;
+  }
+  .offer-list .check-icon{
+    width:20px; height:20px; flex-shrink:0; margin-top:2px;
+    border-radius:50%;
+    background:#DCFCE7; color:#16A34A;
+    display:flex; align-items:center; justify-content:center;
+    font-size:11px;
+  }
+  .offer-price-col{ text-align:center; }
+  .offer-price-old{ font-size:15px; color:var(--gray-dark); text-decoration:line-through; }
+  .offer-price-new{ font-size:40px; font-weight:800; color:var(--black); margin:4px 0 6px; }
+  .offer-price-note{
+    display:inline-block;
+    background:#FEF3C7;
+    color:#92400E;
+    font-size:12px; font-weight:600;
+    padding:6px 14px; border-radius:999px;
+    margin-bottom:20px;
+  }
+  .payment-icons{
+    display:flex; justify-content:center; gap:10px; margin-top:16px;
+  }
+  .payment-icons span{
+    font-size:11px; font-weight:700; color:var(--gray-dark);
+    background:var(--gray-light); padding:6px 10px; border-radius:6px;
+  }
+
+  /* ---------- Divider / Essential offer ---------- */
+  .offer-divider{
+    text-align:center;
+    color:var(--gray-dark);
+    font-weight:700;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    margin:44px 0;
+  }
+  .essential-card{
+    max-width:480px;
+    margin:0 auto;
+    background:var(--white);
+    border:2px solid var(--gray-light);
+    border-radius:var(--radius-lg);
+    padding:36px 32px;
+    text-align:center;
+    box-shadow:var(--shadow-soft);
+  }
+  .essential-card h3{ font-size:19px; margin-bottom:6px; }
+  .essential-card .tag{ font-size:13px; color:var(--gray-dark); margin-bottom:22px; }
+  .essential-list{
+    list-style:none;
+    margin:0 auto 24px;
+    text-align:left;
+    max-width:220px;
+  }
+  .essential-list li{
+    display:flex; align-items:center; gap:10px;
+    font-size:14px; font-weight:600;
+    margin-bottom:10px;
+  }
+  .essential-price{ font-size:32px; font-weight:800; margin-bottom:20px; }
+  .btn-sm{ padding:15px 26px; font-size:14px; max-width:300px; }
+
+  /* ---------- Order bump ---------- */
+  /* ---------- Order bump modal ---------- */
+  .modal-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(17,17,17,0.6);
+    z-index:200;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    opacity:0;
+    transition:opacity .3s ease;
+  }
+  .modal-overlay.active{ display:flex; opacity:1; }
+  .bump-card{
+    position:relative;
+    max-width:460px;
+    width:100%;
+    margin:0 auto;
+    background:var(--white);
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+    box-shadow:0 30px 60px rgba(0,0,0,0.35);
+    max-height:92vh;
+    overflow-y:auto;
+    transform:scale(0.94);
+    transition:transform .3s ease;
+  }
+  .modal-overlay.active .bump-card{ transform:scale(1); }
+  .modal-close{
+    position:absolute;
+    top:14px; right:14px;
+    width:30px; height:30px;
+    border-radius:50%;
+    background:var(--gray-light);
+    color:var(--gray-dark);
+    border:none;
+    font-size:15px;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    z-index:2;
+    transition:background .25s ease;
+  }
+  .modal-close:hover{ background:#E5E5E5; }
+
+  .bump-body{ padding:36px 28px 30px; text-align:center; }
+
+  .bump-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:#FEE2E2;
+    color:#DC2626;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    padding:7px 14px;
+    border-radius:999px;
+    margin-bottom:18px;
+  }
+
+  .bump-title{
+    font-size:18px;
+    line-height:1.4;
+    margin-bottom:24px;
+  }
+  .bump-title .highlight-red{ color:#DC2626; }
+
+  .bump-price-box{
+    background:var(--gray-light);
+    border-radius:var(--radius-md);
+    padding:20px;
+    margin-bottom:20px;
+  }
+  .bump-price-box p{ font-size:13px; color:var(--gray-dark); }
+  .bump-price-box p strong{ color:var(--black); }
+  .bump-price{
+    font-size:38px;
+    font-weight:800;
+    color:#2563EB;
+    line-height:1.1;
+    margin:6px 0;
+  }
+  .bump-price .currency{ font-size:18px; font-weight:700; vertical-align:top; }
+  .bump-price-note{ font-size:12px !important; color:var(--gray-dark); }
+
+  .bump-feature{
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+    text-align:left;
+    border-radius:var(--radius-md);
+    padding:16px 18px;
+    margin-bottom:14px;
+  }
+  .bump-feature-green{ background:#DCFCE7; }
+  .bump-feature-pink{ background:#FCE7F3; }
+  .bump-feature-icon{ font-size:22px; flex-shrink:0; }
+  .bump-feature strong{ display:block; font-size:14.5px; margin-bottom:2px; }
+  .bump-feature p{ font-size:12.5px; color:var(--gray-dark); }
+
+  .bump-warning{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    color:#DC2626;
+    font-size:12.5px;
+    font-weight:600;
+    margin:18px 0 20px;
+  }
+
+  .btn-bump{
+    background:linear-gradient(135deg,#16A34A,#15803D);
+    color:var(--white);
+    box-shadow:0 12px 28px rgba(22,163,74,0.35);
+    animation:bumpPulse 1.6s ease-in-out infinite;
+    width:100%;
+    max-width:100%;
+    font-size:16px;
+  }
+  .btn-bump:hover{ animation-play-state:paused; transform:translateY(-3px) scale(1.03); box-shadow:0 18px 36px rgba(22,163,74,0.5); }
+
+  @keyframes bumpPulse{
+    0%,100%{ transform:scale(1); box-shadow:0 12px 28px rgba(22,163,74,0.35); }
+    50%{ transform:scale(1.05); box-shadow:0 18px 40px rgba(22,163,74,0.55); }
+  }
+  .skip-link{
+    display:block;
+    text-align:center;
+    margin-top:16px;
+    font-size:13px;
+    color:var(--gray-dark);
+    text-decoration:underline;
+  }
+
+  /* ---------- Final CTA ---------- */
+  .final-cta{ text-align:center; padding-top:50px; }
+  .final-cta .section-title{ margin-bottom:36px; }
+
+  /* ---------- Testimonials ---------- */
+  .carousel-wrap{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .testimonial-carousel{
+    display:flex;
+    gap:20px;
+    overflow-x:auto;
+    scroll-snap-type:x proximity;
+    padding:6px 4px 16px;
+    scrollbar-width:thin;
+  }
+  .testimonial-carousel::-webkit-scrollbar{ height:6px; }
+  .testimonial-carousel::-webkit-scrollbar-thumb{ background:var(--gray-light); border-radius:99px; }
+  .testimonial-slide{
+    flex:0 0 auto;
+    scroll-snap-align:center;
+    width:250px;
+  }
+  .testimonial-slide img{
+    width:100%;
+    display:block;
+    border-radius:var(--radius-md);
+    box-shadow:var(--shadow-soft);
+  }
+  .carousel-btn{
+    flex-shrink:0;
+    width:40px; height:40px;
+    border-radius:50%;
+    border:none;
+    background:var(--white);
+    box-shadow:var(--shadow-soft);
+    color:var(--black);
+    font-size:20px;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:background .25s ease, transform .25s ease;
+  }
+  .carousel-btn:hover{ background:var(--gray-light); transform:scale(1.05); }
+
+  .testimonials-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+  }
+  .testimonial-card{
+    background:var(--white);
+    border:1px solid rgba(17,17,17,0.06);
+    border-radius:var(--radius-md);
+    padding:28px;
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .testimonial-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-soft); }
+  .quote-icon{
+    width:36px; height:36px; margin-bottom:14px;
+    border-radius:50%;
+    background:var(--amber);
+    color:var(--white);
+    display:flex; align-items:center; justify-content:center;
+    font-size:16px; font-weight:800;
+  }
+  .testimonial-text{ font-size:14px; color:var(--black); margin-bottom:18px; }
+  .testimonial-foot{ display:flex; align-items:center; gap:12px; }
+  .avatar{
+    width:38px; height:38px; border-radius:50%;
+    background:var(--blue-light); color:var(--blue);
+    display:flex; align-items:center; justify-content:center;
+    font-weight:700; font-size:14px;
+    object-fit:cover;
+    flex-shrink:0;
+  }
+  .testimonial-name{ font-weight:700; font-size:14px; }
+  .testimonial-city{ font-size:12px; color:var(--gray-dark); }
+
+  /* ---------- FAQ ---------- */
+  .faq{ background:var(--gray-light); }
+  .faq-list{ max-width:720px; margin:0 auto; }
+  .faq-item{
+    background:var(--white);
+    border-radius:var(--radius-md);
+    margin-bottom:12px;
+    overflow:hidden;
+  }
+  .faq-question{
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    width:100%; text-align:left; background:none; border:none; cursor:pointer;
+    font-family:'Poppins',sans-serif; font-weight:600; font-size:15px;
+    padding:20px 24px; color:var(--black);
+  }
+  .faq-icon{
+    flex-shrink:0; width:24px; height:24px; font-size:14px;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--gray-dark);
+    transition:transform .35s ease;
+  }
+  .faq-item.active .faq-icon{ transform:rotate(180deg); color:var(--blue); }
+  .faq-answer{ max-height:0; overflow:hidden; transition:max-height .4s ease; padding:0 24px; }
+  .faq-answer p{ color:var(--gray-dark); font-size:14px; padding-bottom:20px; }
+  .faq-item.active .faq-answer{ max-height:220px; }
+
+  /* ---------- Guarantee ---------- */
+  .guarantee{ padding:80px 0 50px; }
+  .guarantee-card{
+    max-width:760px;
+    margin:0 auto;
+    background:var(--gray-light);
+    border-radius:var(--radius-lg);
+    padding:36px;
+    display:flex;
+    align-items:center;
+    gap:24px;
+  }
+  .guarantee-icon{
+    width:60px; height:60px; flex-shrink:0;
+    border-radius:50%;
+    background:var(--white);
+    color:var(--blue);
+    display:flex; align-items:center; justify-content:center;
+    font-size:26px;
+    box-shadow:var(--shadow-soft);
+  }
+  .guarantee-card h3{ font-size:19px; margin-bottom:8px; }
+  .guarantee-card p{ font-size:14px; color:var(--gray-dark); }
+  .guarantee-card strong{ color:var(--black); }
+
+  /* ---------- Footer ---------- */
+  footer{ background:var(--black); color:rgba(255,255,255,0.7); padding:52px 0 30px; text-align:center; }
+  .footer-logo{ color:var(--white); font-weight:800; font-size:18px; margin-bottom:18px; }
+  .footer-links{ display:flex; justify-content:center; gap:26px; flex-wrap:wrap; font-size:14px; margin-bottom:22px; }
+  .footer-links a{ transition:color .25s ease; }
+  .footer-links a:hover{ color:var(--white); }
+  .footer-note{
+    font-size:12px; color:rgba(255,255,255,0.4);
+    max-width:640px; margin:0 auto 14px;
+  }
+  .footer-copy{ font-size:13px; color:rgba(255,255,255,0.4); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:900px){
+    .grid-cards{ grid-template-columns:repeat(2,1fr); }
+    .bonus-grid{ grid-template-columns:repeat(2,1fr); }
+    .bonus-grid-3{ grid-template-columns:repeat(2,1fr); }
+    .testimonials-grid{ grid-template-columns:1fr; }
+    .offer-body{ grid-template-columns:1fr; }
+  }
+  @media (max-width:640px){
+    section{ padding:60px 0; }
+    .hero{ padding-top:36px; }
+    .hero-mockup-img{ max-width:100%; }
+    .grid-cards{ grid-template-columns:1fr 1fr; gap:14px; }
+    .item-card{ padding:22px 16px; }
+    .benefits-grid{ grid-template-columns:1fr; }
+    .bonus-grid{ grid-template-columns:1fr 1fr; }
+    .bonus-grid-3{ grid-template-columns:1fr; }
+    .photo-card{ aspect-ratio:4/5; }
+    .guarantee-card{ flex-direction:column; text-align:center; }
+    .carousel-btn{ display:none; }
+    .testimonial-slide{ width:78vw; max-width:280px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){ *{ transition:none !important; animation:none !important; } }
+</style>
+</head>
+<body>
+
+<!-- URGENCY BAR -->
+<div class="urgency-bar">⏰ OFERTA VÁLIDA POR TEMPO LIMITADO</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <h1 class="hero-title">Descubra os Segredos que Milhares de Mulheres Utilizam para Cuidar da Beleza <span class="accent">Sem Gastar Fortunas</span></h1>
+
+    <div class="hero-mockup reveal">
+      <video id="heroVideo" class="hero-video" controls playsinline autoplay muted preload="metadata" style="width:100%;max-width:480px;aspect-ratio:1/1;margin:0 auto;border-radius:var(--radius-lg);box-shadow:0 28px 50px rgba(0,0,0,0.25);display:block;object-fit:cover;">
+        <source src="video-hero.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo.
+      </video>
+    </div>
+
+    <p class="hero-subtitle reveal">Tenha acesso ao maior pacote de beleza feminina por um valor simbólico. E-books e guias completos de skincare, cabelo, maquiagem e autocuidado, prontos para transformar sua rotina hoje mesmo.</p>
+
+    <div class="cta-wrap reveal">
+      <a href="https://pay.kiwify.com.br/incEf8o" class="btn btn-primary">
+        💄 QUERO ACESSO IMEDIATO
+        <small>Acesso Imediato e Vitalício</small>
+      </a>
+    </div>
+    <p class="hero-secure reveal">🔒 Compra 100% Segura &nbsp;•&nbsp; ⚡ Entrega Imediata</p>
+  </div>
+</header>
+
+<!-- O QUE VOCÊ VAI RECEBER -->
+<section id="conteudo">
+  <div class="container">
+    <h2 class="section-title reveal" style="margin-bottom:48px;color:#DC2626;">💎 O Que Você Vai Receber</h2>
+
+    <div class="grid-cards">
+      <div class="item-card reveal">
+        <div class="item-icon">💆‍♀️</div>
+        <h3>Guia de Skincare</h3>
+        <p>Rotinas completas para uma pele saudável, iluminada e cheia de vida.</p>
+      </div>
+      <div class="item-card reveal">
+        <div class="item-icon">💇‍♀️</div>
+        <h3>Guia de Cabelos</h3>
+        <p>Cuidados e tratamentos caseiros para cabelos fortes e brilhantes.</p>
+      </div>
+      <div class="item-card reveal">
+        <div class="item-icon">💄</div>
+        <h3>Guia de Maquiagem</h3>
+        <p>Técnicas simples para realçar sua beleza no dia a dia e em ocasiões especiais.</p>
+      </div>
+      <div class="item-card reveal">
+        <div class="item-icon">🧘‍♀️</div>
+        <h3>Guia de Autocuidado</h3>
+        <p>Práticas para cultivar bem-estar, equilíbrio e autoestima todos os dias.</p>
+      </div>
+      <div class="item-card reveal">
+        <div class="item-icon">🥗</div>
+        <h3>Receitas Fit para Beleza</h3>
+        <p>Receitas práticas que ajudam a cuidar do corpo de dentro para fora.</p>
+      </div>
+      <div class="item-card reveal">
+        <div class="item-icon">📅</div>
+        <h3>Planner de Beleza</h3>
+        <p>Organize sua rotina de cuidados de forma simples e consistente.</p>
+      </div>
+      <div class="item-card reveal">
+        <div class="item-icon">📱</div>
+        <h3>Acesso em Qualquer Dispositivo</h3>
+        <p>Materiais em alta qualidade, prontos para baixar e consultar sempre que quiser.</p>
+      </div>
+      <div class="item-card reveal">
+        <div class="item-icon">⚡</div>
+        <h3>Entrega Imediata</h3>
+        <p>Receba tudo por e-mail assim que a compra for aprovada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOTO + POR QUE ESCOLHER -->
+<section class="why">
+  <div class="photo-panel reveal">
+    <img src="hero-beleza.png" alt="Se sinta linda todos os dias - guia completo de beleza e autocuidado" class="photo-card">
+  </div>
+  <div class="container">
+    <h2 class="section-title reveal" style="margin-top:48px;margin-bottom:48px;">⭐ Por Que Escolher Este Pacote?</h2>
+
+    <div class="benefits-grid">
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">⏱️</div>
+        <h3>Economize Tempo</h3>
+        <p>Chega de pesquisar por horas. Tudo o que você precisa está organizado em um só lugar.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">💰</div>
+        <h3>Economize Dinheiro</h3>
+        <p>Cuide da sua beleza sem gastar fortunas em produtos e procedimentos caros.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">😌</div>
+        <h3>Praticidade Total</h3>
+        <p>Conteúdo direto ao ponto, fácil de aplicar na sua rotina desde o primeiro dia.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">💖</div>
+        <h3>Mais Autoestima</h3>
+        <p>Cuidar de você é o primeiro passo para se sentir mais confiante todos os dias.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BÔNUS EXCLUSIVOS -->
+<section class="bonus-section">
+  <div class="container">
+    <span class="bonus-pill reveal">Gratuito para você</span>
+    <h2 class="section-title reveal">🎁 Bônus Exclusivos</h2>
+    <p class="section-subtitle reveal">Levando hoje, você ganha todos estes presentes sem custo adicional:</p>
+
+    <div class="bonus-grid bonus-grid-3">
+      <div class="bonus-card reveal">
+        <img src="bonus-planner.png" alt="Planner Digital de Beleza" class="bonus-img">
+        <span class="bonus-price-old">Vendido separadamente por: R$37,90</span>
+        <span class="bonus-price-new">Hoje: R$ 0,00</span>
+      </div>
+      <div class="bonus-card reveal">
+        <img src="bonus-calendario.png" alt="Calendário de 30 Dias de Autocuidado" class="bonus-img">
+        <span class="bonus-price-old">Vendido separadamente por: R$27,90</span>
+        <span class="bonus-price-new">Hoje: R$ 0,00</span>
+      </div>
+      <div class="bonus-card reveal">
+        <img src="bonus-receitas.png" alt="100 Receitas Fit para Beleza e Emagrecimento" class="bonus-img">
+        <span class="bonus-price-old">Vendido separadamente por: R$39,90</span>
+        <span class="bonus-price-new">Hoje: R$ 0,00</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section id="oferta">
+  <div class="offer-wrapper reveal">
+    <div class="offer-card">
+      <div class="offer-head">
+        <h2>PACOTE COMPLETO DE BELEZA</h2>
+        <p>Acesso imediato a todos os e-books e guias + bônus</p>
+      </div>
+      <div class="offer-body">
+        <div>
+          <p style="font-weight:700;font-size:15px;margin-bottom:14px;">Você terá acesso a:</p>
+          <ul class="offer-list">
+            <li><span class="check-icon">✓</span> Acesso Imediato</li>
+            <li><span class="check-icon">✓</span> Todos os E-books e Guias</li>
+            <li><span class="check-icon">✓</span> Atualizações Futuras</li>
+            <li><span class="check-icon">✓</span> Download Ilimitado</li>
+            <li><span class="check-icon">✓</span> Bônus Exclusivos</li>
+            <li><span class="check-icon">✓</span> Garantia de 7 Dias</li>
+          </ul>
+        </div>
+        <div class="offer-price-col">
+          <span class="offer-price-old">De R$99,90</span>
+          <div style="font-weight:700;font-size:13px;color:var(--gray-dark);margin-top:6px;">POR APENAS</div>
+          <div class="offer-price-new">R$49,90</div>
+          <span class="offer-price-note">Menos que uma ida ao salão de beleza 💗</span>
+          <a href="https://pay.kiwify.com.br/incEf8o" class="btn btn-primary">
+            💄 GARANTIR MEU PACOTE
+            <small>Acesso Imediato e Vitalício</small>
+          </a>
+          <div class="payment-icons">
+            <span>VISA</span><span>MASTERCARD</span><span>PIX</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="offer-divider reveal">ou escolha outra opção</div>
+
+    <div class="essential-card reveal">
+      <h3>PACOTE BÁSICO</h3>
+      <p class="tag">Ideal para quem quer economizar.</p>
+      <ul class="essential-list">
+        <li><span class="check-icon" style="width:18px;height:18px;font-size:10px;background:#DCFCE7;color:#16A34A;border-radius:50%;display:flex;align-items:center;justify-content:center;">✓</span> Guia de Skincare</li>
+        <li><span class="check-icon" style="width:18px;height:18px;font-size:10px;background:#DCFCE7;color:#16A34A;border-radius:50%;display:flex;align-items:center;justify-content:center;">✓</span> Guia de Autocuidado</li>
+      </ul>
+      <div class="essential-price">R$19,90</div>
+      <div class="cta-wrap">
+        <a href="https://pay.kiwify.com.br/PeiGrq4" id="essentialBtn" class="btn btn-primary btn-sm">QUERO COMEÇAR AGORA</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER BUMP (modal, exibido ao clicar em "Quero Começar Agora") -->
+<div id="bumpModal" class="modal-overlay">
+  <div class="bump-card">
+    <button id="bumpClose" class="modal-close" aria-label="Fechar">✕</button>
+    <div class="bump-body">
+      <span class="bump-badge">⚡ Oferta Única</span>
+
+      <h2 class="bump-title">Espere! Você estava levando apenas o pacote básico, <span class="highlight-red">SEM TODOS OS GUIAS</span> e <span class="highlight-red">SEM OS BÔNUS EXCLUSIVOS</span></h2>
+
+      <div class="bump-price-box">
+        <p>Leve o <strong>Pacote Completo</strong> de <span style="text-decoration:line-through;color:var(--gray-dark);">R$49,90</span> por apenas</p>
+        <div class="bump-price"><span class="currency">R$</span>29,90</div>
+        <p class="bump-price-note">pagamento único</p>
+      </div>
+
+      <div class="bump-feature bump-feature-green">
+        <div class="bump-feature-icon">💎</div>
+        <div>
+          <strong>Todos os E-books e Guias</strong>
+          <p>Skincare, cabelo, maquiagem e autocuidado completos</p>
+        </div>
+      </div>
+      <div class="bump-feature bump-feature-pink">
+        <div class="bump-feature-icon">🎁</div>
+        <div>
+          <strong>+3 Bônus Exclusivos</strong>
+          <p>Planner de Beleza, Calendário de 30 Dias e Receitas Fit inclusos gratuitamente</p>
+        </div>
+      </div>
+
+      <p class="bump-warning">⚠️ Essa oferta expira ao fechar esta página</p>
+
+      <a href="https://pay.kiwify.com.br/3f5dcDq" class="btn btn-bump">SIM! QUERO O PACOTE COMPLETO →</a>
+      <a href="https://pay.kiwify.com.br/PeiGrq4" class="skip-link">Não, prefiro continuar apenas com o pacote básico</a>
+    </div>
+  </div>
+</div>
+
+<!-- DEPOIMENTOS -->
+<section>
+  <div class="container">
+    <h2 class="section-title reveal">💖 Quem Comprou, Amou!</h2>
+
+    <div class="carousel-wrap reveal">
+      <button class="carousel-btn carousel-prev" aria-label="Depoimento anterior">‹</button>
+      <div class="testimonial-carousel" id="testimonialCarousel">
+        <div class="testimonial-slide"><img src="depoimento-1.png" alt="Depoimento de cliente via WhatsApp"></div>
+        <div class="testimonial-slide"><img src="depoimento-2.jpg" alt="Depoimento de cliente via WhatsApp"></div>
+        <div class="testimonial-slide"><img src="depoimento-3.jpg" alt="Depoimento de cliente via WhatsApp"></div>
+        <div class="testimonial-slide"><img src="depoimento-4.png" alt="Depoimento de cliente via WhatsApp"></div>
+        <div class="testimonial-slide"><img src="depoimento-5.jpg" alt="Depoimento de cliente via WhatsApp"></div>
+      </div>
+      <button class="carousel-btn carousel-next" aria-label="Próximo depoimento">›</button>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <h2 class="section-title reveal">❓ Perguntas Frequentes</h2>
+
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-question">Como recebo o acesso? <span class="faq-icon">⌄</span></button>
+        <div class="faq-answer"><p>Assim que o pagamento é confirmado, você recebe o link de acesso por e-mail para baixar tudo imediatamente.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">O acesso é imediato? <span class="faq-icon">⌄</span></button>
+        <div class="faq-answer"><p>Sim! Assim que a compra é aprovada, você já pode baixar e começar a usar todo o material.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">Posso acessar pelo celular? <span class="faq-icon">⌄</span></button>
+        <div class="faq-answer"><p>Sim, o material é compatível com celular, tablet e computador, e o acesso é vitalício.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">Preciso pagar mensalidade? <span class="faq-icon">⌄</span></button>
+        <div class="faq-answer"><p>Não! O pagamento é único. Você paga uma vez e tem acesso vitalício a todo o conteúdo.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">O material é atualizado? <span class="faq-icon">⌄</span></button>
+        <div class="faq-answer"><p>Sim, você recebe todas as atualizações futuras do pacote sem nenhum custo adicional.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">Como funciona a garantia? <span class="faq-icon">⌄</span></button>
+        <div class="faq-answer"><p>Você tem 7 dias de garantia. Se não gostar do material, devolvemos 100% do seu dinheiro.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTIA -->
+<section class="guarantee">
+  <div class="container">
+    <div class="guarantee-card reveal">
+      <div class="guarantee-icon">🛡️</div>
+      <div>
+        <h3>Garantia Incondicional de 7 Dias</h3>
+        <p>Sua compra é 100% segura e o acesso ao conteúdo é imediato. Se por qualquer motivo você não ficar satisfeita, basta enviar um e-mail dentro de 7 dias e <strong>devolvemos 100% do seu investimento</strong>. Sem perguntas, sem letras miúdas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAMADA FINAL -->
+<section class="final-cta">
+  <div class="container reveal">
+    <h2 class="section-title">Tenha acesso ao maior pacote de beleza feminina por um valor simbólico</h2>
+    <div class="cta-wrap">
+      <a href="https://pay.kiwify.com.br/incEf8o" class="btn btn-primary">
+        💄 GARANTIR MEU PACOTE AGORA
+        <small>Acesso Imediato e Vitalício</small>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-logo">Pacote de Beleza Feminina</div>
+    <div class="footer-links">
+      <a href="#">Termos de Uso</a>
+      <a href="#">Política de Privacidade</a>
+      <a href="#">Contato</a>
+    </div>
+    <p class="footer-note">Este produto não garante a obtenção de resultados. Qualquer referência ao desempenho de uma estratégia não deve ser interpretada como uma garantia de resultados. As imagens são meramente ilustrativas.</p>
+    <p class="footer-copy">© 2026 Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => observer.observe(el));
+
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+      if(!isActive){ item.classList.add('active'); }
+    });
+  });
+
+  // Order bump modal
+  const essentialBtn = document.getElementById('essentialBtn');
+  const bumpModal = document.getElementById('bumpModal');
+  const bumpClose = document.getElementById('bumpClose');
+
+  if(essentialBtn && bumpModal){
+    essentialBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      bumpModal.classList.add('active');
+    });
+  }
+  if(bumpClose && bumpModal){
+    bumpClose.addEventListener('click', () => bumpModal.classList.remove('active'));
+  }
+  if(bumpModal){
+    bumpModal.addEventListener('click', (e) => {
+      if(e.target === bumpModal){ bumpModal.classList.remove('active'); }
+    });
+  }
+
+  // Vídeo do hero: pausa ao sair da tela, retoma ao voltar, e não deixa retroceder
+  const heroVideo = document.getElementById('heroVideo');
+  if(heroVideo){
+    let maxTime = 0;
+
+    heroVideo.addEventListener('timeupdate', () => {
+      if(heroVideo.currentTime > maxTime){
+        maxTime = heroVideo.currentTime;
+      }
+    });
+
+    // Impede o usuário de voltar o vídeo (arrastar a barra para trás)
+    heroVideo.addEventListener('seeking', () => {
+      if(heroVideo.currentTime < maxTime){
+        heroVideo.currentTime = maxTime;
+      }
+    });
+
+    // Pausa quando o vídeo sai da tela, retoma quando volta a aparecer
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          heroVideo.play().catch(() => {});
+        } else {
+          heroVideo.pause();
+        }
+      });
+    }, { threshold: 0.4 });
+    videoObserver.observe(heroVideo);
+  }
+
+  // Testimonial carousel (loop infinito e lento, tipo esteira)
+  const carousel = document.getElementById('testimonialCarousel');
+  const prevBtn = document.querySelector('.carousel-prev');
+  const nextBtn = document.querySelector('.carousel-next');
+  if(carousel && prevBtn && nextBtn){
+    // Duplica os slides para criar um loop contínuo e imperceptível
+    const originalSlides = Array.from(carousel.children);
+    originalSlides.forEach(slide => {
+      const clone = slide.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      carousel.appendChild(clone);
+    });
+
+    let originalWidth = 0;
+    const measure = () => {
+      originalWidth = originalSlides.reduce((sum, slide) => sum + slide.offsetWidth + 20, 0);
+    };
+    measure();
+    window.addEventListener('resize', measure);
+
+    const scrollAmount = () => carousel.querySelector('.testimonial-slide').offsetWidth + 20;
+
+    let isPaused = false;
+    const speed = 0.7; // pixels por frame — ajuste para mais rápido/lento
+
+    const tick = () => {
+      if(!isPaused && originalWidth > 0){
+        carousel.scrollLeft += speed;
+        if(carousel.scrollLeft >= originalWidth){
+          carousel.scrollLeft -= originalWidth;
+        }
+      }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+
+    const pauseAutoplay = () => { isPaused = true; };
+    const resumeAutoplay = () => { isPaused = false; };
+
+    prevBtn.addEventListener('click', () => {
+      pauseAutoplay();
+      carousel.scrollLeft -= scrollAmount();
+      if(carousel.scrollLeft < 0){ carousel.scrollLeft += originalWidth; }
+      setTimeout(resumeAutoplay, 800);
+    });
+    nextBtn.addEventListener('click', () => {
+      pauseAutoplay();
+      carousel.scrollLeft += scrollAmount();
+      if(carousel.scrollLeft >= originalWidth){ carousel.scrollLeft -= originalWidth; }
+      setTimeout(resumeAutoplay, 800);
+    });
+    carousel.addEventListener('mouseenter', pauseAutoplay);
+    carousel.addEventListener('mouseleave', resumeAutoplay);
+    carousel.addEventListener('touchstart', pauseAutoplay, { passive: true });
+    carousel.addEventListener('touchend', resumeAutoplay, { passive: true });
+  }
+</script>
+
+</body>
+</html>
